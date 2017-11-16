@@ -37,7 +37,7 @@ void CheakFile(std::vector <std::string> vect){
                 std::vector <std::vector <Pixel> > bitmap;
                 Bitmap input_Image;
                 C = R = 0;
-                input_Image.open_Bitmap(vect[i]);
+                input_Image.open(vect[i]);
                 if (input_Image.isImage()){
                         bitmap = input_Image.toPixelMatrix();
                         R = bitmap.size();
@@ -73,7 +73,7 @@ void joinPictures(int no_of_files, int arr[][2], std::vector <std::string> vect)
                 count++;
         }//end while loop
         for (n = 0; n<no_of_files; n++){
-                input_Image[n].open_Bitmap(vect[n]);
+                input_Image[n].open(vect[n]);
                 bitmaps.push_back(input_Image[n].toPixelMatrix());
         }//end for loop
         for (int x = 0; x<R; x++)
@@ -101,5 +101,5 @@ void joinPictures(int no_of_files, int arr[][2], std::vector <std::string> vect)
                 }//end inner for loop
         }//end outer for loop
         input_Image[n - 1].fromPixelMatrix(bitmaps[n - 1]);
-        input_Image[n - 1].save_Bitmap("composite-username.bmp");
+        input_Image[n - 1].save("composite-SohailAli9.bmp");
 }//end joinPictures
